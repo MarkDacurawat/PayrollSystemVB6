@@ -1,0 +1,5 @@
+SplashScreen = 52, 52, 833, 482, C, 26, 26, 807, 456, C
+adminLogin = 130, 130, 911, 560, C, 28, 27, 809, 525, C
+adminSignup = 78, 78, 859, 508, I, 24, 28, 805, 518, C
+userModule = 78, 78, 859, 508, C
+payrollDashboard = 34, 12, 847, 497, , 29, 27, 810, 472, C
