@@ -11,6 +11,7 @@ Form=adminLogin.frm
 Form=adminSignup.frm
 Module=userModule; userModule.bas
 Form=payrollDashboard.frm
+Form=employeeList.frm
 Startup="SplashScreen"
 Command32=""
 Name="Project1"
