@@ -4,20 +4,19 @@ Begin VB.Form payrollDashboard
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "payrollDashboard"
-   ClientHeight    =   5280
-   ClientLeft      =   6705
-   ClientTop       =   1950
-   ClientWidth     =   6555
+   ClientHeight    =   6420
+   ClientLeft      =   7635
+   ClientTop       =   2115
+   ClientWidth     =   3585
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   5280
-   ScaleWidth      =   6555
+   ScaleHeight     =   6420
+   ScaleWidth      =   3585
    ShowInTaskbar   =   0   'False
-   Begin VB.CommandButton Command2 
+   Begin VB.CommandButton calculatorBtn 
       BackColor       =   &H00FFFF80&
-      Cancel          =   -1  'True
-      Caption         =   "View"
+      Caption         =   "Calculate Rate Per Hour"
       BeginProperty Font 
          Name            =   "Poppins SemiBold"
          Size            =   8.25
@@ -28,35 +27,76 @@ Begin VB.Form payrollDashboard
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   2160
+      Left            =   480
       Style           =   1  'Graphical
-      TabIndex        =   17
-      Top             =   4200
-      Width           =   855
+      TabIndex        =   12
+      Top             =   5640
+      Width           =   2535
    End
-   Begin VB.CommandButton Command1 
-      BackColor       =   &H0080C0FF&
-      Caption         =   "Save"
-      BeginProperty Font 
-         Name            =   "Poppins SemiBold"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   600
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   495
-      Left            =   1320
-      Style           =   1  'Graphical
-      TabIndex        =   16
-      Top             =   4200
-      Width           =   855
+   Begin VB.TextBox totalTxt 
+      DataField       =   "Department"
+      DataSource      =   "employee"
+      Enabled         =   0   'False
+      Height          =   285
+      Left            =   1080
+      TabIndex        =   11
+      Text            =   "0.00"
+      Top             =   4560
+      Width           =   1935
    End
-   Begin MSAdodcLib.Adodc employee 
+   Begin VB.TextBox tardiness 
+      DataField       =   "Tardiness"
+      DataSource      =   "employee"
       Height          =   375
-      Left            =   1440
-      Top             =   4920
+      Left            =   480
+      TabIndex        =   9
+      Text            =   "0"
+      Top             =   3720
+      Width           =   2535
+   End
+   Begin VB.CommandButton grossPayCompute 
+      BackColor       =   &H0080FF80&
+      Caption         =   "Compute"
+      BeginProperty Font 
+         Name            =   "Poppins SemiBold"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   600
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   495
+      Left            =   480
+      Style           =   1  'Graphical
+      TabIndex        =   7
+      Top             =   5040
+      Width           =   2535
+   End
+   Begin VB.TextBox numberOfDaysWorked 
+      DataField       =   "NoOfHoursWorked"
+      DataSource      =   "employee"
+      Height          =   375
+      Left            =   480
+      TabIndex        =   6
+      Text            =   "0"
+      Top             =   2760
+      Width           =   2535
+   End
+   Begin VB.TextBox ratePerHour 
+      DataField       =   "RatePerHpur"
+      DataSource      =   "employee"
+      Height          =   375
+      Left            =   480
+      TabIndex        =   4
+      Text            =   "0"
+      Top             =   1800
+      Width           =   2535
+   End
+   Begin MSAdodcLib.Adodc getdataAdodc 
+      Height          =   375
+      Left            =   2400
+      Top             =   120
       Visible         =   0   'False
       Width           =   1200
       _ExtentX        =   2117
@@ -82,120 +122,6 @@ Begin VB.Form payrollDashboard
       Enabled         =   -1
       Connect         =   $"payrollDashboard.frx":0000
       OLEDBString     =   $"payrollDashboard.frx":008D
-      OLEDBFile       =   ""
-      DataSourceName  =   ""
-      OtherAttributes =   ""
-      UserName        =   ""
-      Password        =   ""
-      RecordSource    =   "SELECT * FROM employee"
-      Caption         =   "employee"
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      _Version        =   393216
-   End
-   Begin VB.TextBox tardiness 
-      DataField       =   "Tardiness"
-      DataSource      =   "employee"
-      Height          =   375
-      Left            =   3600
-      TabIndex        =   14
-      Text            =   "0"
-      Top             =   2640
-      Width           =   2535
-   End
-   Begin VB.CommandButton grossPayCompute 
-      BackColor       =   &H00FFFF80&
-      Caption         =   "Compute"
-      BeginProperty Font 
-         Name            =   "Poppins SemiBold"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   600
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   495
-      Left            =   360
-      Style           =   1  'Graphical
-      TabIndex        =   12
-      Top             =   4200
-      Width           =   975
-   End
-   Begin VB.TextBox department 
-      DataField       =   "Department"
-      DataSource      =   "employee"
-      Height          =   375
-      Left            =   3600
-      TabIndex        =   10
-      Top             =   1680
-      Width           =   2535
-   End
-   Begin VB.TextBox employeeName 
-      DataField       =   "EmployeeName"
-      DataSource      =   "employee"
-      Height          =   375
-      Left            =   360
-      TabIndex        =   8
-      Top             =   1680
-      Width           =   2535
-   End
-   Begin VB.TextBox numberOfDaysWorked 
-      DataField       =   "NoOfHoursWorked"
-      DataSource      =   "employee"
-      Height          =   375
-      Left            =   360
-      TabIndex        =   6
-      Text            =   "0"
-      Top             =   3600
-      Width           =   2535
-   End
-   Begin VB.TextBox ratePerHour 
-      DataField       =   "RatePerHpur"
-      DataSource      =   "employee"
-      Height          =   375
-      Left            =   360
-      TabIndex        =   4
-      Text            =   "0"
-      Top             =   2640
-      Width           =   2535
-   End
-   Begin MSAdodcLib.Adodc getdataAdodc 
-      Height          =   375
-      Left            =   0
-      Top             =   4920
-      Visible         =   0   'False
-      Width           =   1200
-      _ExtentX        =   2117
-      _ExtentY        =   661
-      ConnectMode     =   0
-      CursorLocation  =   3
-      IsolationLevel  =   -1
-      ConnectionTimeout=   15
-      CommandTimeout  =   30
-      CursorType      =   3
-      LockType        =   3
-      CommandType     =   1
-      CursorOptions   =   0
-      CacheSize       =   50
-      MaxRecords      =   0
-      BOFAction       =   0
-      EOFAction       =   0
-      ConnectStringType=   1
-      Appearance      =   1
-      BackColor       =   -2147483643
-      ForeColor       =   -2147483640
-      Orientation     =   0
-      Enabled         =   -1
-      Connect         =   $"payrollDashboard.frx":011A
-      OLEDBString     =   $"payrollDashboard.frx":01A7
       OLEDBFile       =   ""
       DataSourceName  =   ""
       OtherAttributes =   ""
@@ -229,15 +155,15 @@ Begin VB.Form payrollDashboard
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   255
-      Left            =   4080
-      TabIndex        =   15
-      Top             =   4440
-      Width           =   975
+      Left            =   360
+      TabIndex        =   10
+      Top             =   4560
+      Width           =   735
    End
    Begin VB.Label Label5 
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
-      Caption         =   "Tardiness:"
+      Caption         =   "Tardiness Minutes:"
       BeginProperty Font 
          Name            =   "Poppins SemiBold"
          Size            =   9.75
@@ -249,68 +175,9 @@ Begin VB.Form payrollDashboard
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   375
-      Left            =   3480
-      TabIndex        =   13
-      Top             =   2280
-      Width           =   1335
-   End
-   Begin VB.Label totalTxt 
-      BackStyle       =   0  'Transparent
-      Caption         =   "0"
-      BeginProperty Font 
-         Name            =   "Poppins SemiBold"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   600
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00000000&
-      Height          =   255
-      Left            =   5040
-      TabIndex        =   11
-      Top             =   4440
-      Width           =   1335
-   End
-   Begin VB.Label Label4 
-      Alignment       =   2  'Center
-      BackStyle       =   0  'Transparent
-      Caption         =   "Department:"
-      BeginProperty Font 
-         Name            =   "Poppins SemiBold"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   600
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00000000&
-      Height          =   375
-      Left            =   3480
-      TabIndex        =   9
-      Top             =   1320
-      Width           =   1575
-   End
-   Begin VB.Label Label3 
-      Alignment       =   2  'Center
-      BackStyle       =   0  'Transparent
-      Caption         =   "Employee Name:"
-      BeginProperty Font 
-         Name            =   "Poppins SemiBold"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   600
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00000000&
-      Height          =   375
-      Left            =   240
-      TabIndex        =   7
-      Top             =   1320
+      Left            =   480
+      TabIndex        =   8
+      Top             =   3360
       Width           =   1935
    End
    Begin VB.Label Label2 
@@ -328,10 +195,10 @@ Begin VB.Form payrollDashboard
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   375
-      Left            =   120
+      Left            =   360
       TabIndex        =   5
-      Top             =   3240
-      Width           =   2535
+      Top             =   2400
+      Width           =   2295
    End
    Begin VB.Label Label7 
       Alignment       =   2  'Center
@@ -348,9 +215,9 @@ Begin VB.Form payrollDashboard
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   375
-      Left            =   360
+      Left            =   480
       TabIndex        =   3
-      Top             =   2280
+      Top             =   1440
       Width           =   1455
    End
    Begin VB.Label userNameOutput 
@@ -374,21 +241,21 @@ Begin VB.Form payrollDashboard
    Begin VB.Label Label1 
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
-      Caption         =   "Payroll Dashboard"
+      Caption         =   "Payroll System"
       BeginProperty Font 
          Name            =   "Poppins"
-         Size            =   24
+         Size            =   15.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   735
-      Left            =   720
+      Height          =   495
+      Left            =   240
       TabIndex        =   1
-      Top             =   480
-      Width           =   5175
+      Top             =   720
+      Width           =   3135
    End
    Begin VB.Label createAccount 
       Alignment       =   2  'Center
@@ -416,39 +283,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Command1_Click()
-    
-    If CInt(totalTxt.Caption) = 0 Then
-        MsgBox "Complete all fields first!"
-    Else
-        employee.Recordset.Update
-        If employee.Recordset.EOF Then
-            MsgBox "Can't save employee information!"
-        Else
-            If MsgBox("Do you want to make another computation?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
-                employeeName.Text = ""
-                ratePerHour.Text = ""
-                numberOfDaysWorked.Text = ""
-                tardiness.Text = ""
-                department.Text = ""
-                totalTxt.Caption = 0
-            Else
-                MsgBox "Saved!"
-                Unload Me
-                employeeList.Show
-            End If
-        End If
-    End If
-    
-End Sub
-
-Private Sub Command2_Click()
+Private Sub calculatorBtn_Click()
     Unload Me
-    employeeList.Show
+    calculator.Show
 End Sub
 
 Private Sub Form_Load()
-    employee.Recordset.AddNew
     getdataAdodc.RecordSource = "SELECT * FROM adminAccounts WHERE ID = " & User
     getdataAdodc.Refresh
     
@@ -460,13 +300,17 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub grossPayCompute_Click()
-    If Len(ratePerHour.Text) <= 0 Or Len(numberOfDaysWorked.Text) <= 0 Then
-        MsgBox "Please fill out all the fields!"
+    If Len(ratePerHour.Text) <= 0 Then
+        MsgBox "Please fill out Rate Per Hour field!"
+    ElseIf Not IsNumeric(ratePerHour.Text) Or Not IsNumeric(numberOfDaysWorked.Text) Then
+        MsgBox "Please input Number only!"
+    ElseIf Len(numberOfDaysWorked.Text) <= 0 Then
+        MsgBox "Please fill out Number of Hours Worked field!"
     Else
-        Dim grossPay As String
-        Dim finalTotal As String
+        Dim grossPay As Double
+        Dim finalTotal As Double
         
         grossPay = Format((CDbl(ratePerHour.Text) * CDbl(numberOfDaysWorked.Text)), "#,##0")
-        totalTxt.Caption = (grossPay - CDbl(tardiness.Text))
+        totalTxt.Text = (grossPay - CDbl(tardiness.Text))
     End If
 End Sub

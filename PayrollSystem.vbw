@@ -3,4 +3,4 @@ adminLogin = 130, 130, 911, 560, C, 28, 27, 809, 525, C
 adminSignup = 78, 78, 859, 508, C, 24, 28, 805, 518, C
 userModule = 78, 78, 859, 508, C
 payrollDashboard = 156, 53, 969, 538, C, 29, 27, 811, 472, C
-employeeList = 42, 63, 823, 493, C, 26, 26, 807, 480, C
+calculator = 34, 26, 815, 456, C, 182, 182, 963, 612, C

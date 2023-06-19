@@ -7,13 +7,13 @@ Begin VB.Form adminLogin
    ClientHeight    =   4995
    ClientLeft      =   7320
    ClientTop       =   2430
-   ClientWidth     =   4470
+   ClientWidth     =   4515
    LinkTopic       =   "Form1"
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   4995
-   ScaleWidth      =   4470
+   ScaleWidth      =   4515
    Begin MSAdodcLib.Adodc loginAdodc 
       Height          =   375
       Left            =   600
@@ -169,7 +169,7 @@ Begin VB.Form adminLogin
    Begin VB.Label Label1 
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
-      Caption         =   "Admin Login"
+      Caption         =   "LOGIN"
       BeginProperty Font 
          Name            =   "Poppins"
          Size            =   24

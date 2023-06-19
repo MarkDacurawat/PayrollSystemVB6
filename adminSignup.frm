@@ -194,7 +194,7 @@ Begin VB.Form adminSignup
    Begin VB.Label Label1 
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
-      Caption         =   "Register"
+      Caption         =   "REGISTER"
       BeginProperty Font 
          Name            =   "Poppins"
          Size            =   24
@@ -205,10 +205,10 @@ Begin VB.Form adminSignup
          Strikethrough   =   0   'False
       EndProperty
       Height          =   735
-      Left            =   720
+      Left            =   960
       TabIndex        =   0
       Top             =   240
-      Width           =   2895
+      Width           =   2415
    End
 End
 Attribute VB_Name = "adminSignup"

@@ -4,17 +4,17 @@ Begin VB.Form SplashScreen
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Splash Form"
-   ClientHeight    =   2040
+   ClientHeight    =   2460
    ClientLeft      =   5160
    ClientTop       =   3525
    ClientWidth     =   9270
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   2040
+   ScaleHeight     =   2460
    ScaleWidth      =   9270
    Begin VB.Timer Timer1 
-      Interval        =   50
+      Interval        =   200
       Left            =   0
       Top             =   0
    End
@@ -22,12 +22,33 @@ Begin VB.Form SplashScreen
       Height          =   255
       Left            =   1080
       TabIndex        =   1
-      Top             =   1440
+      Top             =   1920
       Width           =   7215
       _ExtentX        =   12726
       _ExtentY        =   450
       _Version        =   393216
       Appearance      =   0
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "Welcome To Our Simple Payroll System!"
+      BeginProperty Font 
+         Name            =   "Poppins"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   255
+      Left            =   2160
+      MousePointer    =   10  'Up Arrow
+      TabIndex        =   2
+      Top             =   1440
+      Width           =   4815
    End
    Begin VB.Label Label1 
       Alignment       =   2  'Center
