@@ -1,13 +1,13 @@
 VERSION 5.00
 Begin VB.Form calculator 
    Caption         =   "Calculator"
-   ClientHeight    =   4485
+   ClientHeight    =   4785
    ClientLeft      =   7095
    ClientTop       =   3120
-   ClientWidth     =   4965
+   ClientWidth     =   4815
    LinkTopic       =   "Form1"
-   ScaleHeight     =   4485
-   ScaleWidth      =   4965
+   ScaleHeight     =   4785
+   ScaleWidth      =   4815
    Begin VB.TextBox ratePerHourTotal 
       DataField       =   "Department"
       DataSource      =   "employee"
@@ -51,6 +51,27 @@ Begin VB.Form calculator
       TabIndex        =   2
       Top             =   1680
       Width           =   3255
+   End
+   Begin VB.Label createAccount 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "<- Back To Main Page"
+      BeginProperty Font 
+         Name            =   "Poppins"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   375
+      Left            =   -240
+      MousePointer    =   10  'Up Arrow
+      TabIndex        =   8
+      Top             =   4440
+      Width           =   2655
    End
    Begin VB.Label Label6 
       Alignment       =   2  'Center
@@ -151,4 +172,9 @@ Private Sub convertBtn_Click()
         ratePerHourTotal.Text = convertedText
         
     End If
+End Sub
+
+Private Sub createAccount_Click()
+    Unload Me
+    payrollDashboard.Show
 End Sub
