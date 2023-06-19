@@ -6,6 +6,7 @@ Begin VB.Form calculator
    ClientTop       =   3120
    ClientWidth     =   4815
    LinkTopic       =   "Form1"
+   Picture         =   "calculator.frx":0000
    ScaleHeight     =   4785
    ScaleWidth      =   4815
    Begin VB.TextBox ratePerHourTotal 

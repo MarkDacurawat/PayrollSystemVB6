@@ -12,6 +12,7 @@ Begin VB.Form adminLogin
    LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
+   Picture         =   "adminLogin.frx":0000
    ScaleHeight     =   4995
    ScaleWidth      =   4515
    Begin MSAdodcLib.Adodc loginAdodc 
@@ -41,8 +42,8 @@ Begin VB.Form adminLogin
       ForeColor       =   -2147483640
       Orientation     =   0
       Enabled         =   -1
-      Connect         =   $"adminLogin.frx":0000
-      OLEDBString     =   $"adminLogin.frx":008D
+      Connect         =   $"adminLogin.frx":1E67B
+      OLEDBString     =   $"adminLogin.frx":1E708
       OLEDBFile       =   ""
       DataSourceName  =   ""
       OtherAttributes =   ""

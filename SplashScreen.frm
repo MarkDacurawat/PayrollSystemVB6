@@ -11,6 +11,7 @@ Begin VB.Form SplashScreen
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
+   Picture         =   "SplashScreen.frx":0000
    ScaleHeight     =   2460
    ScaleWidth      =   9270
    Begin VB.Timer Timer1 

@@ -11,6 +11,7 @@ Begin VB.Form adminSignup
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
+   Picture         =   "adminSignup.frx":0000
    ScaleHeight     =   5625
    ScaleWidth      =   4350
    ShowInTaskbar   =   0   'False
@@ -41,8 +42,8 @@ Begin VB.Form adminSignup
       ForeColor       =   -2147483640
       Orientation     =   0
       Enabled         =   -1
-      Connect         =   $"adminSignup.frx":0000
-      OLEDBString     =   $"adminSignup.frx":008D
+      Connect         =   $"adminSignup.frx":1E67B
+      OLEDBString     =   $"adminSignup.frx":1E708
       OLEDBFile       =   ""
       DataSourceName  =   ""
       OtherAttributes =   ""

@@ -11,6 +11,7 @@ Begin VB.Form payrollDashboard
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
+   Picture         =   "payrollDashboard.frx":0000
    ScaleHeight     =   6420
    ScaleWidth      =   3585
    ShowInTaskbar   =   0   'False
@@ -120,8 +121,8 @@ Begin VB.Form payrollDashboard
       ForeColor       =   -2147483640
       Orientation     =   0
       Enabled         =   -1
-      Connect         =   $"payrollDashboard.frx":0000
-      OLEDBString     =   $"payrollDashboard.frx":008D
+      Connect         =   $"payrollDashboard.frx":1E67B
+      OLEDBString     =   $"payrollDashboard.frx":1E708
       OLEDBFile       =   ""
       DataSourceName  =   ""
       OtherAttributes =   ""
